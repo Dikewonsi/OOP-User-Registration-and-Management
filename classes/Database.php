@@ -1,7 +1,7 @@
 <?php
     class Database {
         private $host = "localhost";
-        private $db_name = "oop/auth";
+        private $db_name = "oop_app";
         private $username = "root"; // Adjust credentials as needed
         private $password = "";
         public  $conn;

@@ -21,12 +21,11 @@
         $user->password = $_POST['password'];
 
         // Try to log in
-        $result = $user->login();
+        $result = $user->login(); 
 
         if ($result) {
             // User authenticated, set session variables
-            $_SESSION['user_id'] = $result['id'];
-            $_SESSION['username'] = $result['username'];
+            $_SESSION['user_id'] = $result['id'];            
 
             // Redirect to a dashboard or home page
             header("Location: dashboard.php");
