@@ -1,6 +1,8 @@
 OOP User Registration and Management
 
-This project is a simple User Registration and Management System built using PHP with an Object-Oriented Programming (OOP) approach. It allows both users and admins to register, log in, and manage users via a dedicated admin dashboard. The system is styled using Tailwind CSS for a modern and responsive UI.
+This project is the result of my journey as a PHP developer transitioning from procedural programming to Object-Oriented Programming (OOP). After spending 4 years in the procedural PHP world, I wanted to challenge myself by building something more structured and maintainable. I started with basic register and login functions, but as I delved deeper into OOP, I expanded this project into a full User Registration and Management System.
+
+This system allows users to register, log in, and manage their accounts, while admins have the ability to control and manage users through a dedicated admin dashboard. My goal with this project is not just to improve functionality but also to make the codebase more organized and scalable, without the complexities of MVC, which can be overwhelming for those still learning OOP—like me when I started this journey!
 
 Features:
 
