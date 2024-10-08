@@ -25,7 +25,7 @@
 
         if ($result) {
             // User authenticated, set session variables
-            $_SESSION['user_id'] = $result['id'];            
+            $_SESSION['username'] = $result['username'];            
 
             // Redirect to a dashboard or home page
             header("Location: dashboard.php");

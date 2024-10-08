@@ -76,6 +76,50 @@
                 return false; // No user found
             }
         }
+
+        // Fetch user profile by username
+        public function fetchProfile($username) {
+            $query = "SELECT * FROM " . $this->table_name . " WHERE username = :username";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":username", $username);
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
         
+        //Update User Details
+        public function updateUser($email, $password, $username){
+            $query = "UPDATE " . $this->table_name . " SET email = :email, password = :password WHERE username = :username";
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':username', $username);
+
+            if ($stmt->execute())
+            {
+                return true; // Update successful
+            }
+
+            return false; // Update failed
+
+            
+        }
+
+        //Delete User Account
+        public function deleteAccount(){
+            $query = "DELETE FROM " . $this->table_name . " WHERE username = :username";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(":username", $this->username);
+
+            if ($stmt->execute())
+            {
+                return true; // Update successful
+            }
+
+            return false; // Update failed
+        }
     }
 ?>

@@ -48,11 +48,11 @@
         <h1 class="text-2xl font-bold mb-4">Admin Dashboard</h1>
 
         <!-- Add User Button -->
-<div class="mb-4">
-    <a href="add_user.php" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
-        Add User
-    </a>
-</div>
+        <div class="mb-4">
+            <a href="add_user.php" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+                Add User
+            </a>
+        </div>
         
         <!-- User Table -->
         <div class="bg-white p-6 rounded-lg shadow-md">
