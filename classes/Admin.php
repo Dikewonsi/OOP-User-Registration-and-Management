@@ -86,11 +86,12 @@
 
 
         //Fetch User By Id
-        public function fetchUserById($id)
-        {
+        public function fetchUserById($id){
             $query = "SELECT * FROM users WHERE id = :id LIMIT 1";
             $stmt = $this->conn->prepare($query);
+
             $stmt->bindParam(':id', $id);
+
             $stmt->execute();
 
             if($stmt->rowCount() > 0)
@@ -119,6 +120,22 @@
             }
 
             return false; // Update failed
+        }
+
+        //Delete User by Id
+        public function deleteUser($id){
+            $query = "DELETE FROM users WHERE id = :id LIMIT 1";
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(':id', $id);
+
+            if($stmt->execute())
+            {
+                return true; //Delete successful
+            }
+            
+            return false; //Delete Failed.
+
         }
         
     }

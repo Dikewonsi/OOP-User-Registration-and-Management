@@ -67,7 +67,7 @@
                         <td class="py-2 px-4 border-b"><?php echo htmlspecialchars($user['email']); ?></td>
                         <td class="py-2 px-4 border-b">
                             <a href="edit_user.php?id=<?php echo $user['id']; ?>" class="bg-blue-500 text-white px-2 py-1 rounded">Edit</a>
-                            <a href="delete_user.php?id=<?php echo $user['id']; ?>" class="bg-red-500 text-white px-2 py-1 rounded">Delete</a>
+                            <a href="delete_user.php?id=<?php echo $user['id']; ?>" class="bg-red-500 text-white  px-2 py-1 rounded" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
