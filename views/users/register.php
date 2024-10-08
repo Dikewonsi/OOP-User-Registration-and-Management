@@ -37,7 +37,7 @@
 <body class="flex items-center justify-center h-screen bg-gray-100">
     <div class="w-full max-w-xs">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="">
-            <h2 class="text-center text-lg font-bold mb-4">Admin Create Account</h2>
+            <h2 class="text-center text-lg font-bold mb-4">User Create Account</h2>
             
             <?php if ($message): ?>
                 <div class="text-red-500 text-center mb-4"><?php echo $message; ?></div>
@@ -46,6 +46,10 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" placeholder="Username" required>
+            </div>  
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Email</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="email" type="email" placeholder="Username" required>
             </div>           
             <div class="mb-6">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>

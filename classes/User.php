@@ -52,11 +52,11 @@
         //Login User
         public function login() {
             // Check if email exists in the database
-            $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email LIMIT 1";
+            $query = "SELECT * FROM " . $this->table_name . " WHERE username = :username LIMIT 1";
             $stmt = $this->conn->prepare($query);
             
             // Bind email parameter
-            $stmt->bindParam(":email", $this->email);
+            $stmt->bindParam(":username", $this->username);
         
             $stmt->execute();
         

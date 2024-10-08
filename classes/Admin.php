@@ -74,6 +74,52 @@
                 return false; // No Admin found
             }
         }
+
+        // Fetch all users from the users table
+        public function fetchUsers() {
+            $query = "SELECT * FROM users";  // Adjust table name if necessary
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Return all users as an associative array
+        }
+
+
+        //Fetch User By Id
+        public function fetchUserById($id)
+        {
+            $query = "SELECT * FROM users WHERE id = :id LIMIT 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0)
+            {
+                return $stmt->fetch(PDO::FETCH_ASSOC); // Return user data as an associative array
+            }
+
+            return false; // Return false if user not found
+        }
+
+
+        //Update User Details
+        public function updateUser($id, $username, $email, $password)
+        {
+            $query = "UPDATE users SET username = :username, email = :email, password = :password WHERE id = :id";
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+
+            if ($stmt->execute())
+            {
+                return true; // Update successful
+            }
+
+            return false; // Update failed
+        }
         
     }
 ?>

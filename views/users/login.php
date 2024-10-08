@@ -6,7 +6,7 @@
     // Start session
     session_start();
 
-    $message = '';
+    $error_message = '';
 
     // Initialize database connection
     $database = new Database();
@@ -17,7 +17,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Get the form inputs
-        $user->email = $_POST['email'];
+        $user->username = $_POST['username'];
         $user->password = $_POST['password'];
 
         // Try to log in
@@ -30,7 +30,7 @@
             // Redirect to a dashboard or home page
             header("Location: dashboard.php");
         } else {
-            $error_message = "Invalid email or password.";
+            $error_message = "Invalid username or password.";
         }
     }
 ?>
@@ -46,20 +46,20 @@
 </head>
 <body class="flex items-center justify-center h-screen bg-gray-100">
     <div class="w-full max-w-xs">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="">
             <h2 class="text-center text-lg font-bold mb-4">Sign In</h2>
 
-            <?php if ($message): ?>
-                <div class="text-red-500 text-center mb-4"><?php echo $message; ?></div>
+            <?php if ($error_message): ?>
+                <div class="text-red-500 text-center mb-4"><?php echo $error_message; ?></div>
             <?php endif; ?>
 
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" placeholder="Username">
             </div>
             <div class="mb-6">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="********">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="********">
             </div>
             <div class="flex items-center justify-between">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">

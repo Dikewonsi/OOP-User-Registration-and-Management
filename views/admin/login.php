@@ -28,7 +28,7 @@
             $_SESSION['admin_id'] = $result['id'];            
 
             // Redirect to a dashboard or home page
-            header("Location: dashboard.php");
+            header("Location: admin_dashboard.php");
         } else {
             $error_message = "Invalid username or password.";
         }
