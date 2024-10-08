@@ -46,6 +46,13 @@
 <body class="bg-gray-100">
     <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">Admin Dashboard</h1>
+
+        <!-- Add User Button -->
+<div class="mb-4">
+    <a href="add_user.php" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+        Add User
+    </a>
+</div>
         
         <!-- User Table -->
         <div class="bg-white p-6 rounded-lg shadow-md">
@@ -56,6 +63,7 @@
                         <th class="py-2 px-4 border-b">ID</th>
                         <th class="py-2 px-4 border-b">Username</th>
                         <th class="py-2 px-4 border-b">Email</th>
+                        <th class="py-2 px-4 border-b">Password</th>
                         <th class="py-2 px-4 border-b">Actions</th>
                     </tr>
                 </thead>
@@ -65,6 +73,7 @@
                         <td class="py-2 px-4 border-b"><?php echo htmlspecialchars($user['id']); ?></td>
                         <td class="py-2 px-4 border-b"><?php echo htmlspecialchars($user['username']); ?></td>
                         <td class="py-2 px-4 border-b"><?php echo htmlspecialchars($user['email']); ?></td>
+                        <td class="py-2 px-4 border-b"><?php echo htmlspecialchars($user['password']); ?></td>
                         <td class="py-2 px-4 border-b">
                             <a href="edit_user.php?id=<?php echo $user['id']; ?>" class="bg-blue-500 text-white px-2 py-1 rounded">Edit</a>
                             <a href="delete_user.php?id=<?php echo $user['id']; ?>" class="bg-red-500 text-white  px-2 py-1 rounded" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>

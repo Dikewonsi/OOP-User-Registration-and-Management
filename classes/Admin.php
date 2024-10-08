@@ -1,7 +1,8 @@
 <?php
     class Admin {
         private $conn;
-        private $table_name = "admins";
+        private $admintable = "admins";
+        private $usertable = "users";
 
         public $username;
         public $email;
@@ -15,7 +16,7 @@
         public function register()
         {
             //Check to see if there is an existing Admin first.
-            $query = "SELECT id FROM " . $this->table_name . " WHERE username=:username";
+            $query = "SELECT id FROM " . $this->admintable . " WHERE username=:username";
             $stmt = $this->conn->prepare($query);
 
             // Bind Admin data
@@ -32,7 +33,7 @@
                 //$this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
                 // Insert new Admin
-                $query = "INSERT INTO " . $this->table_name . " (username, password) VALUES (:username, :password)";
+                $query = "INSERT INTO " . $this->admintable . " (username, password) VALUES (:username, :password)";
                 $stmt = $this->conn->prepare($query);
 
                 // Bind the parameters
@@ -50,7 +51,7 @@
         //Login Admin
         public function login() {
             // Check if email exists in the database
-            $query = "SELECT * FROM " . $this->table_name . " WHERE username = :username LIMIT 1";
+            $query = "SELECT * FROM " . $this->admintable . " WHERE username = :username LIMIT 1";
             $stmt = $this->conn->prepare($query);
             
             // Bind email parameter
@@ -136,6 +137,44 @@
             
             return false; //Delete Failed.
 
+        }
+
+        //Create User
+        public function createUser()
+        {
+            //Check to see if there is an existing Admin first.
+            $query = "SELECT id FROM " . $this->usertable . " WHERE username=:username AND email=:email";
+            $stmt = $this->conn->prepare($query);
+
+            // Bind Admin data
+            $stmt->bindParam(":username", $this->username);
+            $stmt->bindParam(":email", $this->email);
+
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                return false; // Username  already exists.
+            }
+            else
+            {
+                // Hash password Code
+                //$this->password = password_hash($this->password, PASSWORD_DEFAULT);
+
+                // Insert new Admin
+                $query = "INSERT INTO " . $this->usertable . " (username, email, password) VALUES (:username, :email, :password)";
+                $stmt = $this->conn->prepare($query);
+
+                // Bind the parameters
+                $stmt->bindParam(":username", $this->username);
+                $stmt->bindParam(":email", $this->email);
+                $stmt->bindParam(":password", $this->password);
+
+                if ($stmt->execute()) {
+                    return true;
+                }
+
+                return false; //Registration Failed.
+            }
         }
         
     }
