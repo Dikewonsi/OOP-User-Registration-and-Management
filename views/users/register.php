@@ -34,36 +34,59 @@
     <!-- Link to Tailwind CSS from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-100">
-    <div class="w-full max-w-xs">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="">
-            <h2 class="text-center text-lg font-bold mb-4">User Create Account</h2>
-            
-            <?php if ($message): ?>
-                <div class="text-red-500 text-center mb-4"><?php echo $message; ?></div>
-            <?php endif; ?>
+<body class="flex items-center justify-center h-screen bg-gradient-to-r from-green-400 to-blue-500">
 
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" placeholder="Username" required>
-            </div>  
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Email</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="email" type="email" placeholder="Username" required>
-            </div>           
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="********" required>
-            </div>
-            <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                    Register
-                </button>
-            </div>
-            <div class="mt-4 text-center">
-                <p>Already have an account? <a class="text-blue-500 hover:text-blue-700" href="login.php">Sign in</a></p>
-            </div>
-        </form>
+    <!-- Card Container -->
+    <div class="w-full max-w-md bg-white rounded-lg shadow-xl overflow-hidden">
+        <!-- Logo and App Title -->
+        <div class="bg-green-500 py-4 px-6 text-white text-center">
+            <h2 class="text-3xl font-bold">Create Account</h2>
+            <p class="text-sm mt-2">Join us and get started!</p>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="p-6">
+            <form method="POST" action="">
+                <!-- Display message -->
+                <?php if ($message): ?>
+                    <div class="bg-red-100 text-red-700 p-2 rounded-md text-center mb-4">
+                        <?php echo $message; ?>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Username -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="username">Username</label>
+                    <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" id="username" name="username" type="text" placeholder="Enter your username" required>
+                </div>  
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="email">Email</label>
+                    <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" id="email" name="email" type="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="password">Password</label>
+                    <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" id="password" name="password" type="password" placeholder="********" required>
+                </div>
+
+                <!-- Register Button -->
+                <div class="flex items-center justify-center">
+                    <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full w-full transition duration-300 ease-in-out transform hover:scale-105" type="submit">
+                        Register
+                    </button>
+                </div>
+
+                <!-- Sign In Link -->
+                <div class="mt-4 text-center">
+                    <p class="text-sm">Already have an account? <a class="text-green-500 hover:text-green-600 font-semibold" href="login.php">Sign in</a></p>
+                </div>
+            </form>
+        </div>
     </div>
+
 </body>
 </html>
+

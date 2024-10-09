@@ -45,12 +45,12 @@
     <title>Edit Profile</title>
 </head>
 <body class="bg-gray-100">
-    <div class="container mx-auto mt-12 p-8 bg-white shadow-xl rounded-lg max-w-md">
+    <div class="container mx-auto mt-16 p-10 bg-white shadow-2xl rounded-2xl max-w-lg">
         <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Edit Profile</h1>
 
         <!-- Back Home Button -->
         <div class="mb-8 text-center">
-            <a href="dashboard.php" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-6 rounded-md transition duration-200 ease-in-out">
+            <a href="dashboard.php" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                 Back Home
             </a>
         </div>
@@ -58,19 +58,19 @@
         <!-- Profile Edit Form -->
         <form method="POST" action="">
             <div class="mb-6">
-                <label for="email" class="block text-lg font-semibold text-gray-700 mb-2">Email:</label>
+                <label for="email" class="block text-lg font-semibold text-gray-700 mb-2">Email</label>
                 <input type="email" name="email" id="email" value="<?php echo $profile['email']; ?>" 
-                    class="border border-gray-300 rounded-lg py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out">
+                    class="border border-gray-300 rounded-lg py-3 px-5 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out shadow-sm">
             </div>
 
             <div class="mb-6">
-                <label for="password" class="block text-lg font-semibold text-gray-700 mb-2">Password:</label>
-                <input type="text" name="password" id="password" value="<?php echo $profile['password']; ?>" 
-                    class="border border-gray-300 rounded-lg py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out">
+                <label for="password" class="block text-lg font-semibold text-gray-700 mb-2">Password</label>
+                <input type="password" name="password" id="password" value="<?php echo $profile['password']; ?>" 
+                    class="border border-gray-300 rounded-lg py-3 px-5 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out shadow-sm">
             </div>
 
             <div class="flex justify-center">
-                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg transition duration-200 ease-in-out">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                     Update Profile
                 </button>
             </div>
@@ -88,3 +88,6 @@
     </script>
 </body>
 </html>
+
+
+

@@ -44,32 +44,53 @@
     <!-- Link to Tailwind CSS from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-100">
-    <div class="w-full max-w-xs">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="">
-            <h2 class="text-center text-lg font-bold mb-4">Sign In</h2>
+<body class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-indigo-600">
 
-            <?php if ($error_message): ?>
-                <div class="text-red-500 text-center mb-4"><?php echo $error_message; ?></div>
-            <?php endif; ?>
+    <!-- Card Container -->
+    <div class="w-full max-w-md bg-white rounded-lg shadow-xl overflow-hidden">
+        <!-- Logo and App Title -->
+        <div class="bg-indigo-600 py-4 px-6 text-white text-center">
+            <h2 class="text-3xl font-bold">Welcome Back</h2>
+            <p class="text-sm mt-2">Log in to your account</p>
+        </div>
 
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" placeholder="Username">
-            </div>
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="********">
-            </div>
-            <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                    Sign In
-                </button>
-            </div>
-            <div class="mt-4 text-center">
-                <p>Don't have an account? <a class="text-blue-500 hover:text-blue-700" href="register.php">Sign up</a></p>
-            </div>
-        </form>
+        <!-- Login Form -->
+        <div class="p-6">
+            <form method="POST" action="">
+                <!-- Display error message -->
+                <?php if ($error_message): ?>
+                    <div class="bg-red-100 text-red-700 p-2 rounded-md text-center mb-4">
+                        <?php echo $error_message; ?>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Username -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="username">Username</label>
+                    <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="username" name="username" type="text" placeholder="Enter your username">
+                </div>
+
+                <!-- Password -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="password">Password</label>
+                    <input class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="password" name="password" type="password" placeholder="********">
+                </div>
+
+                <!-- Login Button -->
+                <div class="flex items-center justify-center">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition duration-300 ease-in-out transform hover:scale-105" type="submit">
+                        Sign In
+                    </button>
+                </div>
+
+                <!-- Register Link -->
+                <div class="mt-4 text-center">
+                    <p class="text-sm">Don't have an account? <a class="text-indigo-600 hover:text-indigo-700 font-semibold" href="register.php">Sign up</a></p>
+                </div>
+            </form>
+        </div>
     </div>
+
 </body>
 </html>
+
